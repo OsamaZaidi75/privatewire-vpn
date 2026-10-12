@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <!-- Private keys must never leave the device via backup. -->
+    <cloud-backup>
+        <exclude domain="sharedpref" path="privatewire_secure_prefs" />
+        <exclude domain="database" path="." />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="sharedpref" path="privatewire_secure_prefs" />
+    </device-transfer>
+</data-extraction-rules>

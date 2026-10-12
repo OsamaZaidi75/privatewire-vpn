@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# PrivateWire client-management CLI.
+# Usage: ./vpn add-client NAME [--split] | remove-client NAME | list-clients
+#             | status | show-config NAME | qr NAME | healthcheck
+set -euo pipefail
+PW_ROOT="$(cd "$(dirname "$0")" && pwd)"
+CMD="${1:-help}"; shift || true
+
+case "$CMD" in
+  add-client)    exec "$PW_ROOT/add-client.sh" "$@" ;;
+  remove-client) exec "$PW_ROOT/remove-client.sh" "$@" ;;
+  list-clients)  exec "$PW_ROOT/list-clients.sh" "$@" ;;
+  show-config)   exec "$PW_ROOT/show-config.sh" "$@" ;;
+  qr)            exec "$PW_ROOT/qr.sh" "$@" ;;
+  status)        exec "$PW_ROOT/status.sh" "$@" ;;
+  healthcheck)   exec "$PW_ROOT/healthcheck.sh" "$@" ;;
+  enroll-arm)    exec "$PW_ROOT/enroll-arm.sh" "$@" ;;
+  enroll-open)   exec "$PW_ROOT/enroll-open.sh" "$@" ;;
+  enroll-disarm) exec "$PW_ROOT/enroll-disarm.sh" "$@" ;;
+  enroll-status) exec "$PW_ROOT/enroll-status.sh" "$@" ;;
+  help|-h|--help)
+    cat <<'EOF'
+Usage: ./vpn <command> [args]
+  add-client NAME [--split]  add client (full-tunnel default, --split = LAN-bypass)
+  remove-client NAME         revoke client
+  list-clients               list clients and IPs
+  show-config NAME           print client .conf (SECRET: do not log/share)
+  qr NAME                    print client config as ANSI QR (SECRET)
+  status                     diagnostics (no secrets)
+  healthcheck                tunnel health check, exit !=0 on failure
+  enroll-arm [MIN]           open owner-armed enrollment window (default 15m)
+  enroll-open                PERMANENT open registrar (accepted-risk friends build)
+  enroll-disarm              close enrollment window, shut TCP 8443
+  enroll-status              enrollment window + cert pin (no secrets)
+EOF
+    ;;
+  *) echo "unknown command: $CMD (try ./vpn help)" >&2; exit 2 ;;
+esac

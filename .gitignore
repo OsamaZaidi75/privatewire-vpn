@@ -1,0 +1,35 @@
+# Secrets — never commit keys, configs, or env files with real values.
+*.key
+*.conf
+!**/templates/*.tpl
+.env
+server/*.env
+server/clients/
+*.jks
+*.keystore
+local.properties
+*.pyc
+__pycache__/
+
+# Android / Gradle
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+
+# Local build toolchain (JDK/SDK/Gradle) — large, machine-local, never commit.
+.toolchain/
+.toolchain-dl/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+*.iml
+.vscode/
+*~

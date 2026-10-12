@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PrivateWire</string>
+    <string name="notif_channel">VPN tunnel</string>
+    <string name="state_connected">Connected</string>
+    <string name="state_connecting">Connecting…</string>
+    <string name="state_reconnecting">Reconnecting…</string>
+    <string name="state_disconnecting">Disconnecting…</string>
+    <string name="state_disconnected">Disconnected</string>
+    <string name="state_error">Error: %1$s</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="server_label">Server</string>
+    <string name="ip_label">VPN IP</string>
+    <string name="duration_label">Duration</string>
+    <string name="up_label">Sent</string>
+    <string name="down_label">Received</string>
+    <string name="location_value">United States · Ashburn</string>
+    <string name="version_footer">PrivateWire 1.0.0</string>
+    <string name="developed_by">Developed by Osama Shahid</string>
+    <string name="setup_hint">Setting up this device…</string>
+    <string name="err_no_identity">Setting up this device — try again in a moment.</string>
+    <string name="enroll_failed">Couldn’t set up this device: %1$s. Check your connection and tap Connect to retry.</string>
+    <string name="err_no_config">No VPN configuration imported.</string>
+    <string name="err_vpn_denied">VPN permission denied — the tunnel cannot start.</string>
+    <string name="err_tunnel_timeout">Tunnel did not establish within 30 s. Check your connection and tap Connect to retry.</string>
+    <string name="err_backend">WireGuard backend error.</string>
+    <string name="err_dns">Server address did not resolve: %1$s</string>
+</resources>
